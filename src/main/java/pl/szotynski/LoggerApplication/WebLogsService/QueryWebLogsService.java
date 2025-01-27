@@ -1,11 +1,9 @@
-package pl.szotynski.LoggerApplication.LogsService;
+package pl.szotynski.LoggerApplication.WebLogsService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-final class RegisterLogsService {
-
-
+final class QueryWebLogsService {
 }
