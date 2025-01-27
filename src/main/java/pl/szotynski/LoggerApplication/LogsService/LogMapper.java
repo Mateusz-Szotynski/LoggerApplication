@@ -1,14 +1,19 @@
 package pl.szotynski.LoggerApplication.LogsService;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
+import org.springframework.stereotype.Component;
+import pl.szotynski.LoggerApplication.domain.BasicLog;
 import pl.szotynski.LoggerApplication.domain.Log;
 
-@Mapper
-interface LogMapper {
+@Component
+final class LogMapper {
 
-    LogMapper INSTANCE = Mappers.getMapper(LogMapper.class);
-
-    Log logDAOToLog(LogDAO logDAO);
+    Log logDAOToLog(LogDAO logDAO) {
+        return BasicLog.builder()
+                .severity(logDAO.severity)
+                .dateAndTimeOfEvent(logDAO.dateAndTimeOfEvent)
+                .message(logDAO.message)
+                .build();
+    }
 }

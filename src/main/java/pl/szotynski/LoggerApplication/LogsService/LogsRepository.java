@@ -10,8 +10,8 @@ import pl.szotynski.LoggerApplication.domain.Severity;
 import java.util.List;
 
 @Repository
-interface LogsRepository extends MongoRepository<LogDAO, Long> {
+interface LogsRepository extends MongoRepository<LogDAO, String> {
 
-    @Query("select l from Log l where l.severity = ?1")
-    List<Log> findAllBySeverity(Severity severity);
+    @Query("select l from log l where l.severity = ?1")
+    List<LogDAO> findAllBySeverity(Severity severity);
 }

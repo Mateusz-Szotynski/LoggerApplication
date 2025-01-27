@@ -3,6 +3,7 @@ package pl.szotynski.LoggerApplication.LogsService;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.MongoId;
+import pl.szotynski.LoggerApplication.domain.Log;
 import pl.szotynski.LoggerApplication.domain.Severity;
 
 import java.time.LocalDateTime;
@@ -31,4 +32,6 @@ final class LogDAO {
         this.dateAndTimeOfEvent = dateAndTimeOfEvent;
         this.message = message;
     }
+
+    LogDAO() {}
 }
