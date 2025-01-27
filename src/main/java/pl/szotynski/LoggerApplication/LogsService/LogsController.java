@@ -1,19 +1,28 @@
 package pl.szotynski.LoggerApplication.LogsService;
 
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 import pl.szotynski.LoggerApplication.domain.Log;
 import pl.szotynski.LoggerApplication.domain.Severity;
 
+import java.util.List;
+
 @Controller
-@RequiredArgsConstructor
 final class LogsController {
 
     private final QueryLogsService queryLogsService;
     private final RegisterLogsService registerLogsService;
 
-    Log logBySeverity(@Argument Severity severity) {
+    public LogsController(QueryLogsService queryLogsService, RegisterLogsService registerLogsService) {
+        this.queryLogsService = queryLogsService;
+        this.registerLogsService = registerLogsService;
+    }
 
+    @QueryMapping
+    List<Log> logBySeverity(@Argument Severity severity) {
+        return queryLogsService.logBySeverity(severity);
     }
 }

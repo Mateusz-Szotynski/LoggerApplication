@@ -1,0 +1,16 @@
+type Query {
+    logBySeverity(severity: Severity): Log
+}
+
+type Log {
+    severity: Severity
+    dateAndTimeOfEvent: String
+    message: String
+}
+
+enum Severity {
+    LOW
+    MEDIUM
+    HIGH
+    CRITICAL
+}
