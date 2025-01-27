@@ -7,12 +7,22 @@ import pl.szotynski.LoggerApplication.domain.Log;
 final class RegisterLogsService {
 
     private final LogsRepository logsRepository;
+    private final LogMapper logMapper;
 
-    RegisterLogsService(LogsRepository logsRepository) {
+    RegisterLogsService(LogsRepository logsRepository, LogMapper logMapper) {
         this.logsRepository = logsRepository;
+        this.logMapper = logMapper;
     }
 
-    LogDAO createLog(Log log) {
-        return logsRepository.save(new LogDAO(log.severity(), log.dateAndTimeOfEvent(), log.message()));
+    Log createLog(Log log) {
+        return logMapper.logDAOToLog(
+                logsRepository.save(
+                        new LogDAO(
+                                log.severity(),
+                                log.dateAndTimeOfEvent(),
+                                log.message()
+                        )
+                )
+        );
     }
 }

@@ -14,7 +14,7 @@ final class QueryLogsService {
 
     private final LogsRepository logsRepository;
 
-    public QueryLogsService(LogsRepository logsRepository) {
+    QueryLogsService(LogsRepository logsRepository) {
         this.logsRepository = logsRepository;
     }
 
