@@ -9,8 +9,8 @@ public class BasicLog implements Log {
     private String message;
 
     @Override
-    public String severity() {
-        return severity.toString();
+    public Severity severity() {
+        return severity;
     }
 
     @Override

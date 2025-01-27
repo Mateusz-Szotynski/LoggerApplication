@@ -1,5 +1,14 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
 type Query {
-    logBySeverity(severity: Severity): Log
+    logBySeverity(severity: Severity): [Log]
+}
+
+type Mutation {
+    createLog(severity: Severity!, dateAndTimeOfEvent: String!, message: String!): Log
 }
 
 type Log {

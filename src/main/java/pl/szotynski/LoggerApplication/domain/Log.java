@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public interface Log {
 
-    String severity();
+    Severity severity();
 
     LocalDateTime dateAndTimeOfEvent();
 

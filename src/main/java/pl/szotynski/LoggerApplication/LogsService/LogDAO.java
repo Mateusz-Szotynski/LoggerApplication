@@ -19,4 +19,16 @@ public class LogDAO {
 
     String message;
 
+    public LogDAO(Severity severity, LocalDateTime dateAndTimeOfEvent, String message) {
+        this.severity = severity;
+        this.dateAndTimeOfEvent = dateAndTimeOfEvent;
+        this.message = message;
+    }
+
+    LogDAO(Long id, Severity severity, LocalDateTime dateAndTimeOfEvent, String message) {
+        this.id = id;
+        this.severity = severity;
+        this.dateAndTimeOfEvent = dateAndTimeOfEvent;
+        this.message = message;
+    }
 }
